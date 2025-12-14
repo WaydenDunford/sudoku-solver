@@ -141,6 +141,16 @@ def pretty_print(grid: Grid) -> None:
         print(" ".join(row_parts))
 
 
+def solve_grid(grid: Grid) -> bool:
+    """
+    Validates and solves the given grid in-place.
+    Returns True if solved, False if no solution exists.
+    Raises ValueError if the starting grid is invalid.
+    """
+    rows, cols, boxes = build_constraints(grid)
+    return solve(grid, rows, cols, boxes)
+
+
 if __name__ == "__main__":
     # Hard-coded example grid (0 = empty)
     grid: Grid = [
